@@ -12,7 +12,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
-
+    
     function onEmailChange(event) {
         setEmail(event.target.value)
     }
@@ -27,13 +27,14 @@ export default function Login() {
         setLoading(true)
 
         try {
-            const response = await axiosInstance.post('auth/login', JSON.stringify({
+            const {data, headers} = await axiosInstance.post('auth/login', JSON.stringify({
                 email,
                 password
-            }))
-
-            setAccessToken(response?.data?.access_token)
-            setCSRFToken(response.headers["x-csrftoken"])
+            })) ?? {access_token: ''}
+            localStorage.setItem('access-token', data?.access_token)
+            localStorage.setItem('refresh_token', data.refresh_token)
+            setAccessToken(data?.access_token)
+            setCSRFToken(headers["x-csrftoken"])
             setIsLoggedIn(true);
             setEmail()
             setPassword()

@@ -13,10 +13,10 @@ export default function useUser() {
 
         try {
             const { data } = await axiosPrivateInstance.get('auth/user')
-
             setUser(data)
         } catch (error) {
-            console.log("===", error.response)
+            localStorage.removeItem('access-token')
+            localStorage.removeItem('refresh_token')
         }
     }
 
