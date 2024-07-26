@@ -26,7 +26,6 @@ export default function PersistLogin() {
                 setUser(data)
             } catch (error) {
                 setIsLoggedIn(false);
-                console.log(error?.response)
             } finally {
                 isMounted && setLoading(false)
             }

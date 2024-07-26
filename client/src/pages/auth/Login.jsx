@@ -53,7 +53,6 @@ export default function Login() {
                 navigate('/hello_world')
                 // navigate(fromLocation, { replace: true })
             } catch (error) {
-                console.log("=============", error.response.data)
                 setLoading(false)
                 setError(error.response.data)
             }
