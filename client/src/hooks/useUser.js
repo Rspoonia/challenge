@@ -17,6 +17,7 @@ export default function useUser() {
         } catch (error) {
             localStorage.removeItem('access-token')
             localStorage.removeItem('refresh_token')
+            localStorage.setItem('isLoggedIn', false)
         }
     }
 

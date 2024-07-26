@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 
 export default function Navbar() {
   const { isLoggedIn, user } = useAuth();
-
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">

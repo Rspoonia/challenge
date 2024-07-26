@@ -37,14 +37,14 @@ export default function Login() {
         if(valid) {
             setLoading(true)
             try {
-                const {data, headers} = await axiosInstance.post('auth/login', JSON.stringify({
+                const response = await axiosInstance.post('auth/login', JSON.stringify({
                     email,
                     password
                 })) ?? {access_token: ''}
-                localStorage.setItem('access-token', data?.access_token)
-                localStorage.setItem('refresh_token', data.refresh_token)
-                setAccessToken(data?.access_token)
-                setCSRFToken(headers["x-csrftoken"])
+                localStorage.setItem('access-token', response.data?.access_token)
+                localStorage.setItem('refresh_token', response.data.refresh_token)
+                setAccessToken(response.data?.access_token)
+                setCSRFToken(response.headers["x-csrftoken"])
                 setIsLoggedIn(true);
                 setEmail()
                 setPassword()

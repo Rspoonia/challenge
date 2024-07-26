@@ -9,10 +9,11 @@ export default function useLogout() {
             const response = await axiosPrivateInstance.post("auth/logout")
             setAccessToken(null)
             setCSRFToken(null)
-            setUser({})
             setIsLoggedIn(false)
             localStorage.removeItem('access-token')
             localStorage.removeItem('refresh_token')
+            localStorage.setItem('isLoggedIn', false)
+            setUser({})
 
         } catch (error) {
             console.error(error)
