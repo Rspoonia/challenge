@@ -44,19 +44,19 @@ export default function Register() {
             <form onSubmit={onSubmitForm}>
                 <div className="mb-3">
                     <input type="text" placeholder='First Name' autoComplete='off' className='form-control' id='first_name' ref={first_name} />
-                    {errors.first_name && <div className="invalid-feedback">{errors.first_name}</div>}
+                    {errors.first_name && <div className="invalid-feedback">{errors.first_name[0]}</div>}
                 </div>
                 <div className="mb-3">
                     <input type="text" placeholder='Last Name' autoComplete='off' className='form-control' id='last_name' ref={last_name} />
-                    {errors.last_name && <div className="invalid-feedback">{errors.last_name}</div>}
+                    {errors.last_name && <div className="invalid-feedback">{errors.last_name[0]}</div>}
                 </div>
                 <div className="mb-3">
                     <input type="email" placeholder='Email' autoComplete='off' className='form-control' id="email" ref={email} />
-                    {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                    {errors.email && <div className="invalid-feedback">{errors.email[0]}</div>}
                 </div>
                 <div className="mb-3">
                     <input type="password" placeholder='Password' autoComplete='off' className='form-control' id="password" ref={password} />
-                    {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                    {errors.password && <div className="invalid-feedback">{errors.password[0]}</div>}
                 </div>
                 <div className="mb-3">
                     <input type="password" placeholder='Confirm Password' autoComplete='off' className='form-control' id="passwordConfirmation" ref={password2} />
@@ -64,7 +64,7 @@ export default function Register() {
                 </div>
                 <div className="mb-3">
                     <input type="text" placeholder='Ethereum wallet address' autoComplete='off' className='form-control' id="passwordConfirmation" ref={address} />
-                    {errors.address && <div className="invalid-feedback">{errors.address}</div>}
+                    {errors.address && <div className="invalid-feedback">{errors.address[0]}</div>}
                 </div>
                 <div className="mb-3">
                     <button disabled={loading} className='btn btn-success' type="submit">Register</button>
